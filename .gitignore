@@ -1,3 +1,11 @@
+
+# Ignore output files and input files 
+*.html
+*.csv
+
+#Pycharm
+.idea
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
