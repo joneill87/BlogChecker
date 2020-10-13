@@ -1,7 +1,9 @@
 
-# Ignore output files and input files 
+# Ignore output files and input files
 *.html
 *.csv
+*.xls
+*.xlsx
 
 #Pycharm
 .idea

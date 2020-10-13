@@ -44,6 +44,9 @@
                      <div class="${record.last_post_report.css_class}">
                         ${record.last_post_report.message}
                     </div>
+                     <div class="${record.last_post_length.css_class}">
+                        ${record.last_post_length.message}
+                    </div>
                      <div class="${record.total_posts_report.css_class}">
                         ${record.total_posts_report.message}
                     </div>
