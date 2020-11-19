@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Blog Check ${now}</title>
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -26,6 +27,22 @@
         }
         .blog-check-details {
             width: 35%;
+        }
+
+        [data-toggle="collapse"]:after {
+            display: inline-block;
+            font: normal normal normal 12px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\f054";
+            transform: rotate(90deg) ;
+            transition: all linear 0.25s;
+        }
+
+        [data-toggle="collapse"].collapsed:after {
+          transform: rotate(0deg) ;
         }
     </style>
 </head>
@@ -55,7 +72,8 @@
                 <div class="blog-check-details">
                      <h1 class="collapse-trigger" id="headerBloggerName${loop.index}">
                         <a data-toggle="collapse" data-target="#blogger${loop.index}"
-                           aria-expanded="true" aria-controls="blogger${loop.index}">
+                           aria-expanded="false" aria-controls="blogger${loop.index}"
+                           class="collapsed">
                             ${record.first_name} ${record.last_name}
                         </a>
                     </h1>
@@ -77,7 +95,9 @@
                 % for post in record.posts:
                     <article>
                         <h2 class="collapse-trigger" id="blogger${loop.parent.index}article${loop.parent.index}Name">
-                            <a data-toggle="collapse" data-target="#blogger${loop.parent.index}article${loop.index}" aria-expanded="true" aria-controls="blogger${loop.parent.index}article${loop.index}">
+                            <a data-toggle="collapse" data-target="#blogger${loop.parent.index}article${loop.index}"
+                            aria-expanded="false" aria-controls="blogger${loop.parent.index}article${loop.index}"
+                            class="${'collapsed' if loop.index > 0 else ''}">
                                 ${post.title}
                             </a>
                         </h2>
