@@ -11,6 +11,7 @@ Blogs must be accessible via the wordpress public api in order for this script t
 
 import argparse
 import datetime
+import codecs
 from datetime import date
 import dateutil.parser
 import requests
@@ -230,7 +231,7 @@ for row in range(students_data.shape[0]):
 
 now = datetime.datetime.now()
 
-with open('output_{0}.html'.format(now.strftime("%Y_%m_%d_%H_%M_%S")), 'w') as html_file:
+with codecs.open('output_{0}.html'.format(now.strftime("%Y_%m_%d_%H_%M_%S")), 'w', 'utf-8') as html_file:
     output = Template(filename='ReportTemplate.mako')
     html_file.write(output.render(now=str(now), records=records))
 
