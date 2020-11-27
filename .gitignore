@@ -3,6 +3,7 @@
 # Ignore output files and input files
 *.html
 *.csv
+!Sample-BlogList.csv
 *.xls
 *.xlsx
 
