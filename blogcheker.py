@@ -232,7 +232,7 @@ for row in range(students_data.shape[0]):
 now = datetime.datetime.now()
 
 with codecs.open('output_{0}.html'.format(now.strftime("%Y_%m_%d_%H_%M_%S")), 'w', 'utf-8') as html_file:
-    output = Template(filename='ReportTemplate.mako')
+    output = Template(filename=utils.get_makeo_template_path())
     html_file.write(output.render(now=str(now), records=records))
 
 students_data['Blog {}'.format(date.today().strftime("%d/%b/%Y"))] = new_column

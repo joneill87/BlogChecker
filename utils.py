@@ -1,4 +1,10 @@
 import re
+import os
+import sys
+
+
+def get_makeo_template_path() -> str:
+    return f"{os.path.dirname(os.path.realpath(sys.argv[0]))}/ReportTemplate.mako"
 
 
 def strip_protocol_identifier(url) -> str:
