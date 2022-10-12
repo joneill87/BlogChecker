@@ -43,7 +43,8 @@ parser.add_argument(
     default=7,
     dest="max_days",
     help=
-    "The maximum number of days which should have elapsed since a student's last post. Students without a post during this time period will be flagged as a warning"
+    "The maximum number of days which should have elapsed since a student's last post. Students without a "
+    "post during this time period will be flagged as a warning"
 )
 
 parser.add_argument(
@@ -52,7 +53,8 @@ parser.add_argument(
     default=30,
     dest="min_post_len",
     help=
-    "The maximum number of days which should have elapsed since a student's last post. Students without a post during this time period will be flagged as a warning"
+    "The minimum number of words which should be present in a post. Students whose latest post is shortern "
+    "than this will be flagged as a warning"
 )
 
 parser.add_argument("--suppress-project-check",
@@ -171,12 +173,12 @@ def process_blog_column(record):
     return new_line
 
 
-def process_student(student_number, first_name, last_name, email, project_name,
-                    blog_url):
+def process_student(student_number, first_name, last_name, email, project_name, blog_url):
 
     record = BlogRecord()
 
-    print(f"{first_name} {last_name}:", end=" ")
+    if verbose:
+        print(f"{first_name} {last_name}:", end=" ")
 
     record.student_number = student_number
     record.last_name = last_name
